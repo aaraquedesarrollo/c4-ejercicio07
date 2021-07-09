@@ -12,8 +12,12 @@ const PersonaSchema = new Schema({
     maxLength: 9,
   },
   edad: Number,
-  vacunas: [Date],
+  vacunas: {
+    type: [Date],
+    validate: [validarVacunas, "No se pueden poner mas vacunas."],
+  },
 });
+const validarVacunas = (valor) => valor.length <= 2;
 
 const Persona = model("Persona", PersonaSchema, "persona");
 

@@ -10,6 +10,6 @@ const CiudadSchema = new Schema({
   puntosLocalizacion: [PuntosVacunacionSchema],
 });
 
-const Ciudad = new model("Ciudad", CiudadSchema, "ciudades");
+const Ciudad = model("Ciudad", CiudadSchema, "ciudades");
 
 module.exports = Ciudad;

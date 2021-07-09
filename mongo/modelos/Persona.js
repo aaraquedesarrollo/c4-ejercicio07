@@ -1,5 +1,7 @@
 const { Schema, model } = require("mongoose");
 
+const validarVacunas = (valor) => valor.length <= 2;
+
 const PersonaSchema = new Schema({
   nombre: {
     type: String,
@@ -17,7 +19,6 @@ const PersonaSchema = new Schema({
     validate: [validarVacunas, "No se pueden poner mas vacunas."],
   },
 });
-const validarVacunas = (valor) => valor.length <= 2;
 
 const Persona = model("Persona", PersonaSchema, "persona");
 

@@ -1,5 +1,6 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
+const debug = require("debug")("vacunas:mongo:conexion");
 
 mongoose.connect(
   process.env.MONGO_URL,
@@ -11,10 +12,10 @@ mongoose.connect(
   },
   (err) => {
     if (err) {
-      console.log("No se ha podido iniciar la base de datos");
-      console.log(err.message);
+      debug("No se ha podido iniciar la base de datos");
+      debug(err.message);
       return;
     }
-    console.log("Se ha iniciado la base de datos");
+    debug("Se ha iniciado la base de datos");
   }
 );

@@ -18,6 +18,7 @@ const PersonaSchema = new Schema({
   },
 });
 const validarVacunas = (valor) => valor.length <= 2;
+
 const Persona = model("Persona", PersonaSchema, "persona");
 
 module.exports = Persona;

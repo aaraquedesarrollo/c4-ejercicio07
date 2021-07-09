@@ -1,21 +1,17 @@
 const express = require("express");
-const chalk = require("chalk");
+const debug = require("debug")("vacunas:servidor:init");
+const { chalk, errorServidor } = require("./errores");
 
 const app = express();
 
 const puerto = process.env.PORT || 5000;
 const server = app.listen(puerto, () => {
-  console.log(
-    chalk.greenBright.bold(`Servidor funcionando en el puerto ${puerto}`)
-  );
+  debug(chalk.greenBright.bold(`Servidor funcionando en el puerto ${puerto}`));
 });
 
 server.on("error", (e) => {
-  console.log(
-    chalk.redBright.bold(
-      `El servidor no se a podido levantar por: ${e.message}`
-    )
-  );
+  errorServidor(e, puerto);
+  console.log(e.code);
 });
 
 module.exports = {

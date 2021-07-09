@@ -3,7 +3,7 @@ const chalk = require("chalk");
 
 const app = express();
 
-const puerto = process.env.PORT;
+const puerto = process.env.PORT || 5000;
 const server = app.listen(puerto, () => {
   console.log(
     chalk.greenBright.bold(`Servidor funcionando en el puerto ${puerto}`)

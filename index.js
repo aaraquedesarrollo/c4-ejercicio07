@@ -2,12 +2,20 @@ require("./mongo/conexion");
 require("./servidor");
 
 const {
+  eliminarRegistroPersona,
+  modificarPersonaVacunada,
   crearRegistroPersona,
-  listarPersonas,
+  listarPersonaPorDni,
 } = require("./mongo/controladores/persona");
 
 (async () => {
-  /*  await crearRegistroPersona("39401979n", "Jose Maria", "Zamora Perez", "26"); */
-  /*  const personas = await listarPersonas();
-  console.log(personas); */
+  // await crearRegistroPersona("39401978n", "Pepe", "Zamorano Pereza", "30");
+  // const personas = await listarPersonaPorDni("39401979n");
+  /* const persona = await modificarPersonaVacunada("60e87b8236342a3114375277", {
+    nombre: "Jose",
+  }); */
+  /* const personaEliminada = await eliminarRegistroPersona(
+    "60e9d54f4a578a3e78b88bed"
+  ); */
+  // console.log(personaEliminada);
 })();

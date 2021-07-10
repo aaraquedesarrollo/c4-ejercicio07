@@ -1,13 +1,8 @@
 const Persona = require("../modelos/Persona");
 
-const crearRegistroPersona = async (dni, nombre, apellidos, edad) => {
+const crearRegistroPersona = async (registro) => {
   try {
-    const persona = await Persona.create({
-      nombre,
-      apellidos,
-      dni: dni.toUpperCase(),
-      edad,
-    });
+    const persona = await Persona.create(registro);
     return persona;
   } catch (error) {
     console.log(`error al crear el registro: ${error.message}`);

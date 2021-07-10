@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const { PuntosVacunacionSchema } = require("./PuntosVacunacion");
 
 const validarVacunas = (valor) => valor.length <= 2;
 
@@ -15,7 +16,8 @@ const PersonaSchema = new Schema({
   },
   edad: Number,
   centro_vacunacion: {
-    type: String,
+    type: PuntosVacunacionSchema,
+    default: {},
     required: true,
   },
   vacunas: {

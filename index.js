@@ -9,19 +9,19 @@ const {
 } = require("./mongo/controladores/persona");
 
 (async () => {
-  /* await crearRegistroPersona({
-      nombre: "Pepe",
-      apellidos:"Zamorano Pereza",
-      centro_vacunacion: "Hospital",
-      dni: "39401979N",
-      edad:"30",
-    }); */
-  // const personas = await listarPersonaPorDni("39401979n");
+  await crearRegistroPersona({
+    nombre: "Pepe",
+    apellidos: "Zamorano Pereza",
+    centro_vacunacion: { nombre: "Sant Isidor- Centre vacunal CAPSBE" },
+    dni: "39401854N",
+    edad: "30",
+  });
+  const personas = await listarPersonaPorDni("39401854N");
   /* const persona = await modificarPersonaVacunada("60e87b8236342a3114375277", {
     nombre: "Jose",
   }); */
   /* const personaEliminada = await eliminarRegistroPersona(
     "60e9d54f4a578a3e78b88bed"
   ); */
-  // console.log(personaEliminada);
+  console.log(personas);
 })();

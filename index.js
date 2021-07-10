@@ -12,6 +12,7 @@ const {
   /* await crearRegistroPersona({
       nombre: "Pepe",
       apellidos:"Zamorano Pereza",
+      centro_vacunacion: "Hospital",
       dni: "39401979N",
       edad:"30",
     }); */

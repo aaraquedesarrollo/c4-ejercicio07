@@ -14,6 +14,10 @@ const PersonaSchema = new Schema({
     maxLength: 9,
   },
   edad: Number,
+  centro_vacunacion: {
+    type: String,
+    required: true,
+  },
   vacunas: {
     type: [Date],
     validate: [validarVacunas, "No se pueden poner mas vacunas."],

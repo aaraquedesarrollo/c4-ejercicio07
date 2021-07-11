@@ -40,8 +40,19 @@ const listarPersonasVacunadasCiudad = async (idCiudad) => {
   const personasVacunadas = await Persona.find();
   return personasVacunadas;
 };
+const anyadirVacunaApersona = async (dni, fecha) => {
+  const persona = await listarPersonaPorDni(dni);
+  const anyadirVacuna = await Persona.findByIdAndUpdate(
+    { _id: persona[0]._id },
+    {
+      $push: { vacunas: fecha },
+    }
+  );
+  return anyadirVacuna;
+};
 
 module.exports = {
+  anyadirVacunaApersona,
   eliminarRegistroPersona,
   modificarPersonaVacunada,
   crearRegistroPersona,

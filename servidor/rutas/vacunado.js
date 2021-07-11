@@ -19,10 +19,15 @@ router.get("/ciudad/:idCiudad", async (req, res, next) => {
 });
 
 // Devuelve un array con las personas que se han vacunado en un centro
-router.get("/ciudad/:idCentro", (req, res, next) => {});
+router.get("/ciudad/centro/:idCentro", (req, res, next) => {});
 
 // Devuelve la informacion de una persona vacunada a partir de un DNI
-router.get("/ciudad/:dni", (req, res, next) => {});
+router.get("/ciudad/persona/:dni", async (req, res, next) => {
+  const { dni } = req.params;
+  const persona = await listarPersonaPorDni(dni.toUpperCase());
+  if (!persona) return res.status(404).json({});
+  res.json(persona);
+});
 
 // Para crear una persona vacunada
 router.post("/persona", async (req, res, next) => {

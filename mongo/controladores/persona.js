@@ -11,7 +11,10 @@ const crearRegistroPersona = async (registro) => {
 };
 
 const listarPersonaPorDni = async (dni) => {
-  const persona = await Persona.find().where("dni").eq(dni.toUpperCase());
+  const persona = await Persona.find()
+    .where("dni")
+    .eq(dni.toUpperCase())
+    .populate("ciudades");
   return persona;
 };
 

@@ -27,13 +27,24 @@ router.get("/ciudad/:dni", (req, res, next) => {});
 // Para crear una persona vacunada
 router.post("/persona", async (req, res, next) => {
   const creacionRegistro = await crearRegistroPersona(req.body);
-  return creacionRegistro;
+  if (!creacionRegistro) return res.status(409).json({});
+  res.status(204).json(creacionRegistro);
 });
 
 // Para modificar una persona vacunada
-router.put("/persona/:idPersona", (req, res, next) => {});
+router.put("/persona/:idPersona", async (req, res, next) => {
+  const { idPersona } = req.params;
+  const personaModificada = await modificarPersonaVacunada(idPersona, req.body);
+  if (!personaModificada) return res.status(404).json({});
+  res.status(204).json(personaModificada);
+});
 
 // Para borrar una persona vacunada
-router.delete("/persona/:idPersona", (req, res, next) => {});
+router.delete("/persona/:idPersona", async (req, res, next) => {
+  const { idPersona } = req.params;
+  const personaBorrada = await eliminarRegistroPersona(idPersona);
+  if (!personaBorrada) return res.status(404).json({});
+  res.json(personaBorrada);
+});
 
 module.exports = router;

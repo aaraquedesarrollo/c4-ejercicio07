@@ -1,7 +1,8 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, SchemaTypes } = require("mongoose");
 const { PuntosVacunacionSchema } = require("./PuntosVacunacion");
+const { VacunaSchema } = require("./Vacuna");
 
-const validarVacunas = (valor) => valor.length <= 2;
+const validarDosis = (valor) => valor.length <= 2;
 
 const PersonaSchema = new Schema({
   nombre: {
@@ -16,13 +17,13 @@ const PersonaSchema = new Schema({
   },
   edad: Number,
   centro_vacunacion: {
-    type: PuntosVacunacionSchema,
-    default: {},
+    type: SchemaTypes.ObjectId,
     required: true,
   },
+  vacuna: { type: SchemaTypes.ObjectId, required: true },
   vacunas: {
     type: [Date],
-    validate: [validarVacunas, "No se pueden poner mas vacunas."],
+    validate: [validarDosis, "No se pueden poner mas vacunas."],
   },
 });
 

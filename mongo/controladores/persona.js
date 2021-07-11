@@ -1,3 +1,4 @@
+const { SchemaTypes } = require("mongoose");
 const Persona = require("../modelos/Persona");
 
 const crearRegistroPersona = async (registro) => {
@@ -35,9 +36,15 @@ const eliminarRegistroPersona = async (id) => {
   }
 };
 
+const listarPersonasVacunadasCiudad = async (idCiudad) => {
+  const personasVacunadas = await Persona.find();
+  return personasVacunadas;
+};
+
 module.exports = {
   eliminarRegistroPersona,
   modificarPersonaVacunada,
   crearRegistroPersona,
   listarPersonaPorDni,
+  listarPersonasVacunadasCiudad,
 };

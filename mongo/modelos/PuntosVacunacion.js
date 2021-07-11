@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 const { LocalizacionSchema } = require("./Localizacion");
-const Vacuna = require("./Vacuna");
+const { Vacuna, VacunaSchema } = require("./Vacuna");
 
 const PuntosVacunacionSchema = new Schema({
   nombre: {
@@ -9,7 +9,7 @@ const PuntosVacunacionSchema = new Schema({
     unique: true,
   },
   localizacion: LocalizacionSchema,
-  vacunas: [Vacuna],
+  vacunas: [VacunaSchema],
 });
 
 module.exports = {

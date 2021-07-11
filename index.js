@@ -9,13 +9,13 @@ const {
 } = require("./mongo/controladores/persona");
 
 // (async () => {
-//   await crearRegistroPersona({
-//     nombre: "Pepe",
-//     apellidos: "Zamorano Pereza",
-//     centro_vacunacion: { nombre: "Sant Isidor- Centre vacunal CAPSBE" },
-//     dni: "39401854N",
-//     edad: "30",
-//   });
+//   // await crearRegistroPersona({
+//   //   nombre: "Pepe",
+//   //   apellidos: "Zamorano Pereza",
+//   //   centro_vacunacion: { nombre: "Sant Isidor- Centre vacunal CAPSBE" },
+//   //   dni: "39401854N",
+//   //   edad: "30",
+//   // });
 //   const personas = await listarPersonaPorDni("39401854N");
 //   /* const persona = await modificarPersonaVacunada("60e87b8236342a3114375277", {
 //     nombre: "Jose",

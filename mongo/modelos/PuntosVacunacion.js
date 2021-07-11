@@ -8,7 +8,7 @@ const PuntosVacunacionSchema = new Schema({
     unique: true,
   },
   localizacion: LocalizacionSchema,
-  vacunas: [SchemaTypes.ObjectId],
+  vacunas: { type: [Schema.Types.ObjectId], ref: "Vacuna" },
 });
 
 module.exports = {

@@ -9,7 +9,7 @@ const PersonaSchema = new Schema({
     type: String,
     required: true,
   },
-  apellido: String,
+  apellidos: String,
   dni: {
     type: String,
     unique: true,

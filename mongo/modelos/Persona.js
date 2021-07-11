@@ -20,7 +20,7 @@ const PersonaSchema = new Schema({
     type: SchemaTypes.ObjectId,
     required: true,
   },
-  vacuna: { type: SchemaTypes.ObjectId, required: true },
+  vacuna: { type: SchemaTypes.ObjectId, ref: "Vacuna", required: true },
   vacunas: {
     type: [Date],
     validate: [validarDosis, "No se pueden poner mas vacunas."],

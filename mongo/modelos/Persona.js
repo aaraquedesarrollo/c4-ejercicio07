@@ -17,13 +17,17 @@ const PersonaSchema = new Schema({
   },
   edad: Number,
   centro_vacunacion: {
-    type: SchemaTypes.ObjectId,
+    type: Schema.Types.ObjectId,
+    ref: "PuntosVacunacionSchema",
     required: true,
   },
-  vacuna: { type: SchemaTypes.ObjectId, ref: "Vacuna", required: true },
+  vacuna: { type: SchemaTypes.ObjectId, ref: "Vacuna" },
   vacunas: {
     type: [Date],
-    validate: [validarDosis, "No se pueden poner mas vacunas."],
+    validate: {
+      validator: validarDosis,
+      message: "No se pueden poner mas vacunas.",
+    },
   },
 });
 

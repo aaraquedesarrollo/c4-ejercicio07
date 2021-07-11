@@ -5,6 +5,10 @@ const getCentrosVacunacion = async (idCiudad) => {
   return puntosVacunacion;
 };
 
+const anyadirVacunaACentro = async (idVacuna, idCentro) => {
+  const centroModificado = await Ciudad.updateOne();
+};
+
 module.exports = {
   getCentrosVacunacion,
 };

@@ -12,10 +12,10 @@ mongoose.connect(
   },
   (err) => {
     if (err) {
-      debug("No se ha podido iniciar la base de datos");
+      debug("No se ha podido conectar a la base de datos");
       debug(err.message);
       return;
     }
-    debug("Se ha iniciado la base de datos");
+    debug("Se ha conectado a la base de datos");
   }
 );

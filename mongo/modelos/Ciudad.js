@@ -7,7 +7,7 @@ const CiudadSchema = new Schema({
     unique: true,
     required: true,
   },
-  puntosLocalizacion: [PuntosVacunacionSchema],
+  puntosVacunacion: [PuntosVacunacionSchema],
 });
 
 const Ciudad = model("Ciudad", CiudadSchema, "ciudades");

@@ -9,6 +9,7 @@ const errorServidor = (error, puerto) => {
 };
 
 const error404 = (req, res, next) => {
+  debug(chalk.redBright.bold("No se ha encontrado el recurso"));
   res.status(404).json({ error: true, mensaje: "Recurso no encontrado" });
 };
 
